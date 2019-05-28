@@ -1,6 +1,4 @@
 class EducationsController < ApplicationController
-
-
   def show
     @education = Education.find(params[:id])
   end
@@ -37,6 +35,4 @@ class EducationsController < ApplicationController
     def education_params
       params.require(:education).permit(:highschool, :faculty, :department, :year_of_start, :year_of_end, :english)
     end
-
-
 end

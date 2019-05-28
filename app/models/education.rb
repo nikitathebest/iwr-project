@@ -6,5 +6,4 @@ class Education < ApplicationRecord
   validates :year_of_end, presence: true, numericality: { greater_than: 1955, less_than: 2025 }
 
   ENGLISH = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
-
 end

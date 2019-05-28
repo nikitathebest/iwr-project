@@ -1,0 +1,24 @@
+div
+  p
+    | Education with id
+    = @education.id
+  p
+    | Highschool: 
+    = @education.highschool
+  p
+    | Faculty: 
+    = @education.faculty
+  p
+    | Department: 
+    = @education.department
+  p
+    | Start year: 
+    = @education.year_of_start
+  p
+    | End year: 
+    = @education.year_of_end
+  p
+    | English level: 
+    = @education.english
+div
+  = link_to :edit, edit_education_path

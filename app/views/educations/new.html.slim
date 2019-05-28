@@ -1,0 +1,23 @@
+= form_for(@education) do |f|
+  = render 'shared/register_error_messages', object: @education
+  div class="field"
+    = f.label :highschool
+    = f.text_field :highschool, placeholder: 'The name of your highschool'
+  div class="faculty"
+    = f.label :faculty
+    = f.text_field :faculty
+  div class="department"
+    = f.label :department
+    = f.text_field :department
+  div class="year_of_start"
+    = f.label :year_of_start
+    = f.number_field :year_of_start
+  div class="year_of_end"
+    = f.label :year_of_end
+    = f.number_field :year_of_end
+  div class="english"
+    = f.label :english
+    = select(:education, :english, Education::ENGLISH)
+  div class="actions"
+    = f.submit "Submit"
+    

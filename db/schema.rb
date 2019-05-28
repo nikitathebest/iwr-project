@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_230216) do
+ActiveRecord::Schema.define(version: 2019_05_28_112800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "educations", force: :cascade do |t|
+    t.string "highschool"
+    t.string "faculty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "department"
+    t.integer "year_of_start"
+    t.integer "year_of_end"
+    t.string "english"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "country_code"
@@ -23,4 +34,29 @@ ActiveRecord::Schema.define(version: 2019_05_23_230216) do
     t.datetime "updated_at", null: false
     t.string "telephone"
   end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "sphere"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_skill_levels", force: :cascade do |t|
+    t.integer "level"
+    t.bigint "user_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_user_skill_levels_on_skill_id"
+    t.index ["user_id"], name: "index_user_skill_levels_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "user_skill_levels", "skills"
+  add_foreign_key "user_skill_levels", "users"
 end

@@ -13,5 +13,4 @@ before_install:
   - gem install reek -v 5.4
 
 before_script:
-  - psql -c "CREATE DATABASE iwr-project_test;" -U postgres
   - psql -c "CREATE USER iwr-admin WITH PASSWORD '12345678';" -U postgres

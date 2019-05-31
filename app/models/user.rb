@@ -5,6 +5,9 @@ class User < ApplicationRecord
   include Authenticatable
   attr_accessor :remember_token
 
+  enum role: [:employee, :manager, :admin, :director]
+  after_initialize :set_default_role, :if => :new_record?
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 
   before_save { self.email = email.downcase }
@@ -18,4 +21,10 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :password, presence: true, length: { minimum: 6, maximum: 200 }
+
+  private
+  
+  def set_default_role
+    self.role ||= :employee
+  end
 end

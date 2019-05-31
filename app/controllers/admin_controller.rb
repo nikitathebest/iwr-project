@@ -17,7 +17,7 @@ class AdminController < ApplicationController
       redirect_to admin_index_path
       flash[:success] = 'User destroyed.'
     else
-      flash[:danger] = 'Something went wrong.'
+      flash.now.alert = 'Something went wrong.'
     end
   end
 end

@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_05_31_081247) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,5 +36,4 @@ ActiveRecord::Schema.define(version: 2019_05_31_081247) do
     t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
 end

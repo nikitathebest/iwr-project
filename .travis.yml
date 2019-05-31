@@ -14,7 +14,10 @@ before_install:
   - gem install rubocop -v 0.67.2
   - gem install rspec -v 3.8
   - gem install reek -v 5.4
-
-script:
   - bundle exec rake db:setup
   - bundle exec rake
+
+script:
+  - rubocop
+  - reek
+  - rspec

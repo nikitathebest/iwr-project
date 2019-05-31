@@ -11,6 +11,3 @@ before_install:
   - gem install rubocop -v 0.67.2
   - gem install rspec -v 3.8
   - gem install reek -v 5.4
-
-before_script:
-  - psql -c "CREATE USER iwr-admin WITH PASSWORD '12345678';" -U postgres

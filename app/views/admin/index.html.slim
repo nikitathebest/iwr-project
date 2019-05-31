@@ -1,0 +1,14 @@
+table
+  - unless @users.empty?
+    tr
+      th name
+      th surname
+      th email
+      th role
+      th colspan="3" actions
+    - @users.each do |user|
+      = render 'user', user: user
+  - else
+    p
+      | No users found.
+

@@ -15,6 +15,7 @@ before_install:
   - gem install rspec -v 3.8
   - gem install reek -v 5.4
   - gem install rake -v 12.3.2
+  - bundle install
   - bundle exec rake db:setup
   - bundle exec rake
 

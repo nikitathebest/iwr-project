@@ -13,5 +13,5 @@ before_install:
   - gem install reek -v 5.4
 
 script:
-  - rake db:setup
-  - rake
+  - bundle exec rake db:setup
+  - bundle exec rake

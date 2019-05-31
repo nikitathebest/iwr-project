@@ -1,0 +1,9 @@
+- unless current_user?(user)
+  tr
+    td.name = user.name
+    td.surname = user.surname
+    td.email = user.email
+    td.role = user.role
+    td.actions = link_to :destroy, admin_path(user),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }

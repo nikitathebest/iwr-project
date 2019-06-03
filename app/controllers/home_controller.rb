@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-# Controller for home page
+# Home Controller class
 class HomeController < ApplicationController
-  def home; end
+  def index
+    @user = User.new
+  end
 end

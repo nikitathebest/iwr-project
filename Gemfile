@@ -34,6 +34,7 @@ end
 # IWR gems
 gem 'bcrypt', '>= 3.1.12'
 gem 'country_select', '~> 4.0'
+gem 'font-awesome-rails'
 gem 'slim-rails'
 gem 'travis'
 group :development, :test do

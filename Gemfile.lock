@@ -42,15 +42,14 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.4.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
     autoprefixer-rails (9.5.1.1)
       execjs
     backports (3.15.0)
-    bcrypt (3.1.12)
+    bcrypt (3.1.13)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -60,7 +59,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capybara (3.21.0)
+    capybara (3.22.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -81,7 +80,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    connection_pool (2.2.2)
     countries (3.0.0)
       i18n_data (~> 0.8.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -100,12 +98,14 @@ GEM
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.11.1)
-    gh (0.14.0)
-      addressable
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
+    gh (0.15.1)
+      addressable (~> 2.4.0)
       backports
       faraday (~> 0.8)
       multi_json (~> 1.0)
-      net-http-persistent (>= 2.7)
+      net-http-persistent (~> 2.9)
       net-http-pipeline
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -142,15 +142,13 @@ GEM
     msgpack (1.2.10)
     multi_json (1.13.1)
     multipart-post (2.1.1)
-    net-http-persistent (3.0.1)
-      connection_pool (~> 2.2)
+    net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
     popper_js (1.14.5)
-    public_suffix (3.0.3)
     puma (3.12.1)
     pusher-client (0.6.2)
       json
@@ -304,6 +302,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   country_select (~> 4.0)
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

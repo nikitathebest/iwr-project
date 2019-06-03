@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   get 'home/index'
 
   root 'home#index'
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, param: :user_id, only: [:new, :create]
-  resources :profiles, only: [:show, :edit, :update]
-
+  resources :users, param: :user_id, only: %i[new create]
+  resources :profiles, only: %i[show edit update]
 end

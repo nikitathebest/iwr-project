@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Service for User create
 class UserCreateService
   attr_reader :name, :surname, :email, :password, :password_confirmation
 
@@ -16,8 +19,8 @@ class UserCreateService
   private
 
   def save_user!
-    user = User.create(name: name, surname: surname, email: email,
-           password: password, password_confirmation: password_confirmation)
+    User.create(name: name, surname: surname,
+                email: email, password: password,
+                password_confirmation: password_confirmation)
   end
-
 end

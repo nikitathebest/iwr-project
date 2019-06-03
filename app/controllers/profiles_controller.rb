@@ -6,22 +6,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
-  def new
-    @profile = Profile.new
-  end
-
   def edit
     @profile = Profile.find(params[:id])
-  end
-
-  def create
-    @profile = Profile.new(profile_params)
-
-    if @profile.save
-      redirect_to @profile
-    else
-      render :new
-    end
   end
 
   def update
@@ -32,14 +18,6 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @profile = Profile.find(params[:id])
-
-    @profile.destroy
-
-    redirect_to root_path
   end
 
   private

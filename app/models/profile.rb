@@ -2,6 +2,8 @@
 
 # Profile model
 class Profile < ApplicationRecord
+  belongs_to :user
+
   validates :telephone, presence: true, numericality: true,
                         length: { minimum: 10, maximum: 15 }
   validates :country_code, presence: true,

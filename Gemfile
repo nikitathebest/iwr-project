@@ -35,6 +35,7 @@ end
 gem 'bcrypt', '>= 3.1.12'
 gem 'country_select', '~> 4.0'
 gem 'slim-rails'
+gem 'font-awesome-rails'
 group :development, :test do
   # Enter your gem
 end

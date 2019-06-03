@@ -1,0 +1,4 @@
+- unless logged_in?
+  = render 'shared/navbar/welcome_navbar'
+- else
+  = render 'shared/navbar/user_navbar'

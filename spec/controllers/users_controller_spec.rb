@@ -22,18 +22,6 @@ RSpec.describe UsersController, type: :controller do
     }
   end
 
-  describe 'GET #show' do
-    it 'returns a successful response' do
-      get :show, params: { id: user.id }
-      expect(response).to be_successful
-    end
-
-    it 'render users#show template' do
-      get :show, params: { id: user.id }
-      expect(response).to render_template(:show)
-    end
-  end
-
   describe 'GET #new' do
     it 'returns a successful response' do
       get :new
@@ -48,9 +36,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'POST #create' do
     context 'when valid' do
-      it 'redirect to profile' do
+      it 'redirect to root' do
         post :create, params: { user: valid_params }
-        expect(response).to redirect_to(user_path(assigns(:user)))
+        expect(response).to redirect_to(root_path)
       end
 
       it 'creates the record in the database' do

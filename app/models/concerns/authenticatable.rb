@@ -5,11 +5,8 @@ module Authenticatable
   include ActiveSupport::Concern
   # Returns the hash digest of the given string.
   def User.digest(string)
-    if cost == ActiveModel::SecurePassword.min_cost
-      BCrypt::Engine::MIN_COST
-    else
-      BCrypt::Engine.cost
-    end
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 

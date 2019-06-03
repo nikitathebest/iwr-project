@@ -1,0 +1,4 @@
+- if logged_in?
+  = render 'shared/home/for_logged_users'
+- else
+  = render 'shared/home/for_unregistered_users'

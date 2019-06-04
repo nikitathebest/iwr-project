@@ -15,7 +15,7 @@ before_install:
   - gem install rspec -v 3.8
   - gem install reek -v 5.4
   - gem install rake -v 12.3.2
-  - gem 'net-http-pipeline' -v 1.0.1
+  - gem install net-http-pipeline -v 1.0.1
   - bundle install
   - bundle exec rake db:setup
 

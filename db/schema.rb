@@ -15,17 +15,6 @@ ActiveRecord::Schema.define(version: 2019_05_31_081247) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "educations", force: :cascade do |t|
-    t.string "highschool"
-    t.string "faculty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "department"
-    t.integer "year_of_start"
-    t.integer "year_of_end"
-    t.string "english"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string "country_code"
     t.string "city"

@@ -15,10 +15,8 @@ before_install:
   - gem install rake -v 12.3.2
   - gem install net-http-pipeline -v 1.0.1
   - bundle install
+  - cp config/database.travis.yml config/database.yml
   - bundle exec rake db:setup
 
-before_script:
-  - cp config/database.travis.yml config/database.yml
-  
 script:
   - rubocop

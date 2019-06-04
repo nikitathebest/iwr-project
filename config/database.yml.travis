@@ -1,3 +1,5 @@
 test:
   adapter: postgresql
-  database: travis_ci_test
+  database: iwr-project_test
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

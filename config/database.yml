@@ -61,7 +61,7 @@ test:
   <<: *default
   database: iwr-project_test
   host: localhost
-  username: <%= ENV['TRAVIS'] ? '' : 'iwr-admin' %>
+  username: <%= ENV['TRAVIS'] ? 'postgres' : 'iwr-admin' %>
   password: <%= ENV['TRAVIS'] ? '' : '12345678' %>
 
 # As with config/secrets.yml, you never want to store sensitive information,

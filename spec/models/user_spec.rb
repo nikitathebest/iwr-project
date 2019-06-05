@@ -4,6 +4,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it { should have_one(:profile).dependent(:destroy) }
+
   let(:user) { User.create(valid_params) }
   let(:valid_params) do
     {

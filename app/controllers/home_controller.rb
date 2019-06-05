@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
-# Controller for home page
+# Home Controller class
 class HomeController < ApplicationController
-  def home; end
+  def index
+    if logged_in?
+      render layout: 'application'
+    else
+      @user = User.new
+      render layout: 'welcome'
+    end
+  end
 end

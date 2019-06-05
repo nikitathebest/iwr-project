@@ -10,6 +10,118 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
+ *= require_tree
+ *= require_self
  */
 
 @import 'bootstrap';
+@import "font-awesome";
+
+.nav-link {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+footer {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+
+
+// login layout
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  .card-body {
+    padding: 2rem;
+    h5 {
+      color: #345654;
+    }
+  }
+}
+label {
+  color: #345654;
+}
+.form-signin {
+  width: 100%;
+  .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+}
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+  input {
+    height: 2rem;
+    border-radius: 2rem;
+  }
+  >input {
+    padding: 10px;
+  }
+  >label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+}
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+.btn-github {
+  color: white;
+  background-color: #444444;
+}
+.btn-facebook {
+  color: white;
+  background-color: #4f837f;
+}
+.underlay {
+  background-color: rgba(0, 0, 0, .7);
+  height: 100vh;
+  z-index: 1050;
+}
+#loginlayunder, #registerlayunder {
+  max-width: 350px;
+  margin: 0 auto;
+  z-index: 1051;
+}
+#register, #fogotpass, #loginback {
+  margin-bottom: 10px;
+  color: #345654;
+  text-decoration: underline;
+  transition: all .2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    color: #353456;
+  }
+}
+#register, #loginback {
+  &:hover{
+    transform: scale(1.3, 1.3);
+  }
+}

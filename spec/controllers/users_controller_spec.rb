@@ -80,6 +80,7 @@ RSpec.describe UsersController, type: :controller do
         name: 'P'
       }
     end
+
     context 'when logged in' do
       before do
         log_in user

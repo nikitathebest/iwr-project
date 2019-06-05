@@ -116,6 +116,7 @@ RSpec.describe ProfilesController, type: :controller do
         telephone: '1'
       }
     end
+
     context 'when logged in' do
       before do
         log_in user

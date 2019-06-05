@@ -3,16 +3,17 @@
 # Controller for profile
 class ProfilesController < ApplicationController
   def show
-    @profile = Profile.find(params[:id])
+    @profile = authorize Profile.find(params[:id])
   end
 
   def edit
     @profile = Profile.find(params[:id])
+    authorize @profile
   end
 
   def update
     @profile = Profile.find(params[:id])
-
+    authorize @profile
     if @profile.update_attributes(profile_params)
       redirect_to @profile
     else

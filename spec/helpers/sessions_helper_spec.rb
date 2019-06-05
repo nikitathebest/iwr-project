@@ -14,22 +14,6 @@ RSpec.describe SessionsHelper, type: :helper do
     }
   end
 
-  describe '#current_user' do
-    context 'if logged in' do
-      before do
-        log_in(user)
-      end
-      it 'return right user' do
-        expect(current_user).to eq(user)
-      end
-    end
-    context 'if not logged in' do
-      it 'return nil' do
-        expect(current_user).to eq(nil)
-      end
-    end
-  end
-
   describe '#log_out' do
     before do
       log_in(user)
@@ -48,6 +32,22 @@ RSpec.describe SessionsHelper, type: :helper do
   describe '#log_in' do
     it 'log_in should return session user id when session is success' do
       expect(log_in(user)).to eq(user.id)
+    end
+  end
+
+  describe '#current_user' do
+    context 'if logged in' do
+      before do
+        log_in(user)
+      end
+      it 'returns right user' do
+        expect(current_user).to eq(user)
+      end
+    end
+    context 'if not logged in' do
+      it 'returns nil' do
+        expect(current_user).to eq(nil)
+      end
     end
   end
 end

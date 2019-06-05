@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_162437) do
+ActiveRecord::Schema.define(version: 2019_06_05_192049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_05_30_162437) do
     t.integer "year_of_start"
     t.integer "year_of_end"
     t.string "english"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_educations_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -37,6 +39,23 @@ ActiveRecord::Schema.define(version: 2019_05_30_162437) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.string "sphere"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_skill_levels", force: :cascade do |t|
+    t.integer "level"
+    t.bigint "user_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_user_skill_levels_on_skill_id"
+    t.index ["user_id"], name: "index_user_skill_levels_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -46,8 +65,12 @@ ActiveRecord::Schema.define(version: 2019_05_30_162437) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "educations", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "user_skill_levels", "skills"
+  add_foreign_key "user_skill_levels", "users"
 end

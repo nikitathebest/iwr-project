@@ -1,4 +1,6 @@
 class Education < ApplicationRecord
+  belongs_to :user
+
   validates :highschool, presence: true, length: { minimum: 3, maximum: 15}
   validates :faculty, presence: true, length: { minimum: 2, maximum: 15}
   validates :department, presence: true, length: { minimum: 3, maximum: 15}

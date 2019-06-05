@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profiles, only: %i[show edit update]
+  resources :profiles, param: :user_id, only: %i[show edit update]
 end

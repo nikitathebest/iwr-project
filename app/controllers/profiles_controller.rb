@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:user_id])
     authorize @profile
     @user = current_user
-    @education = Education.all
+    @education = current_user.education
   end
 
   def edit

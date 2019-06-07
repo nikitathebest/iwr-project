@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # resources :educations, except: [:index]
   resources :users, param: :user_id, except: %i[index new] do
     member do
-      resource :educations, only: %i[edit]
+      resource :education, only: %i[edit update]
     end
   end
 

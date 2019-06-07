@@ -1,5 +1,9 @@
 = form_for(@education) do |f|
-  = render 'shared/register_error_messages', object: @education
+  = render 'shared/register_error_messages', object: @education     
+  br
+  br
+  br
+  br
   div class="field"
     = f.label :highschool
     = f.text_field :highschool, placeholder: 'The name of your highschool'

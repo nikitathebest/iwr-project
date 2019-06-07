@@ -1,26 +1,31 @@
-= form_for(@education) do |f|
-  = render 'shared/register_error_messages', object: @education     
-  br
-  br
-  br
-  br
-  div class="field"
-    = f.label :highschool
-    = f.text_field :highschool, placeholder: 'The name of your highschool'
-  div class="faculty"
-    = f.label :faculty
-    = f.text_field :faculty
-  div class="department"
-    = f.label :department
-    = f.text_field :department
-  div class="year_of_start"
-    = f.label :year_of_start
-    = f.number_field :year_of_start
-  div class="year_of_end"
-    = f.label :year_of_end
-    = f.number_field :year_of_end
-  div class="english"
-    = f.label :english
-    = select(:education, :english, Education::ENGLISH)
-  div class="actions"
-    = f.submit "Submit"
+main role="main" class="container" id="education"
+        div class="bloktron" id="education-head-edit"
+          div class="container"
+            h1
+              | Editing education information
+        div class="bloktron" id="education-info-edit"
+            = form_for(@education) do |f|
+                = render 'shared/register_error_messages', object: @education
+                div class="field"
+                = f.label :highschool
+                = f.text_field :highschool, placeholder: 'The name of your highschool', :class => 'form-control'
+                div class="field"
+                = f.label :faculty
+                = f.text_field :faculty, :class => 'form-control'
+                div class="field"
+                = f.label :department
+                = f.text_field :department, :class => 'form-control'
+                div class="field"
+                = f.label :year_of_start
+                = f.number_field :year_of_start, :class => 'form-control'
+                div class="field"
+                = f.label :year_of_end
+                = f.number_field :year_of_end, :class => 'form-control'
+                div class="field"
+                = f.label :english
+                br
+                = select(:education, :english, Education::ENGLISH)
+                br
+                br
+                div class="actions"
+                = f.submit "Edit education", :class => 'btn btn-primary'

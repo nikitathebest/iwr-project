@@ -1,24 +1,20 @@
-div
-  p
-    | Education with id
-    = @education.id
-  p
-    | Highschool: 
-    = @education.highschool
-  p
-    | Faculty: 
-    = @education.faculty
-  p
-    | Department: 
-    = @education.department
-  p
-    | Start year: 
-    = @education.year_of_start
-  p
-    | End year: 
-    = @education.year_of_end
-  p
-    | English level: 
-    = @education.english
-div
-  = link_to 'Edit', edit_education_path
+div id="education"
+  div class="bloktron" id="education-info-head"
+    div class="container"
+      h1
+        | #{@education.id}  
+  div class="bloktron" id="education-info"
+    h4 Education information
+    p class="lead"
+      | Highschool: #{@education.highschool}
+      br
+      | Faculty: #{@education.faculty}
+      br
+      | Department: #{@education.department}
+      br
+      | Start year: #{@education.year_of_start}
+      br
+      | End year: #{@education.year_of_end}
+      br
+      | English level: #{@education.english}
+    = link_to 'Edit', edit_education_path, :class => 'btn btn-lg btn-primary', :id => 'edit_button'

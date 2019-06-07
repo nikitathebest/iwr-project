@@ -23,5 +23,4 @@ class User < ApplicationRecord
                        allow_nil: true
 
   accepts_nested_attributes_for :education
-                       
 end

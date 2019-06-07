@@ -44,7 +44,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :surname,
                                  :email, :password, :password_confirmation,
                                  educations_attributes:
-                                 %i[highschool faculty department year_of_start year_of_end english])
+                                 %i[highschool faculty department year_of_start
+                                    year_of_end english])
   end
 
   def user_profile_id

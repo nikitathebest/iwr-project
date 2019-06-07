@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Service for Education create
 class EducationCreateService
   attr_reader :user_id
 

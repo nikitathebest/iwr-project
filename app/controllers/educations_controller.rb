@@ -3,20 +3,16 @@
 # Controller for education
 class EducationsController < ApplicationController
   def edit
-    @profile = Profile.find(params[:user_id])
-    authorize @profile
     @user = current_user
     @education = current_user.education
   end
 
   def update
-    @profile = Profile.find(params[:user_id])
-    authorize @profile
     @user = current_user
     @education = current_user.education
 
     if @education.update_attributes(education_params)
-      redirect_to @profile
+      redirect_to profile_path
     else
       render :edit
     end

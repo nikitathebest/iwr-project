@@ -16,6 +16,6 @@ class EducationCreateService
 
   def save_education!
     education = Education.new(user_id: user_id)
-    education.save(validate: false)
+    education.save!(validate: false)
   end
 end

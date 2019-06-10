@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-# rubocop:disable all
 
 require 'rails_helper'
 
 RSpec.describe EducationsController, type: :controller do
   let(:user) { User.create(user_params) }
-  let(:education) { Education.create(valid_params)}
+  let(:education) { Education.create(valid_params) }
   let(:profile) { Profile.create(profile_params) }
   let(:user_params) do
     {
@@ -99,5 +98,3 @@ RSpec.describe EducationsController, type: :controller do
     end
   end
 end
-
-# rubocop:enable all

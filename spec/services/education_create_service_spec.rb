@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable all
 
 require 'rails_helper'
 
@@ -17,9 +16,7 @@ RSpec.describe EducationCreateService do
   end
   describe '#call!' do
     it 'create Education with no validation' do
-      expect{ subject.call! }.to change{ Education.all.count }.by(1)
+      expect { subject.call! }.to change { Education.all.count }.by(1)
     end
   end
 end
-
-# rubocop:enable all

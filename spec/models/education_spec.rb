@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable all
 
 require 'rails_helper'
 
@@ -34,7 +33,5 @@ RSpec.describe Education, type: :model do
     it { should validate_presence_of(:year_of_end) }
     it { should validate_numericality_of(:year_of_end).is_less_than(2025) }
     it { should validate_numericality_of(:year_of_end).is_greater_than(1955) }
-  end  
+  end
 end
-
-# rubocop:enable all

@@ -3,7 +3,6 @@
 # Controller for education
 class EducationsController < ApplicationController
   def edit
-    @user = current_user
     @education = current_user.education
   end
 

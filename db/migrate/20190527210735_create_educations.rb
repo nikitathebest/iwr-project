@@ -1,12 +1,12 @@
 class CreateEducations < ActiveRecord::Migration[5.2]
   def change
     create_table :educations do |t|
-      t.string :highschool
+      t.string :university
       t.string :faculty
       t.string :department
-      t.integer :year_of_start
-      t.integer :year_of_end
-      t.string :english
+      t.integer :entrance_year
+      t.integer :graduation_year
+      t.string :english_level
     
       t.timestamps
     end

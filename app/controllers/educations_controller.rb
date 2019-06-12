@@ -20,7 +20,8 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:highschool, :faculty, :department,
-                                      :year_of_start, :year_of_end, :english)
+    params.require(:education).permit(:university, :faculty, :department,
+                                      :entrance_year, :graduation_year,
+                                      :english_level)
   end
 end

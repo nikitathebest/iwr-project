@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2019_05_30_162437) do
   enable_extension "plpgsql"
 
   create_table "educations", force: :cascade do |t|
-    t.string "highschool"
+    t.string "university"
     t.string "faculty"
     t.string "department"
-    t.integer "year_of_start"
-    t.integer "year_of_end"
-    t.string "english"
+    t.integer "entrance_year"
+    t.integer "graduation_year"
+    t.string "english_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

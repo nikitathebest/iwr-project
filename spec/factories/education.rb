@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :education do
-    highschool { 'BSUIR' }
+    university { 'BSUIR' }
     faculty { 'FKSIS' }
     department { 'VMSIS' }
-    year_of_start { '2016' }
-    year_of_end { '2020' }
-    english { 'A1' }
+    entrance_year { '2016' }
+    graduation_year { '2020' }
+    english_level { 'A1' }
     user
   end
 end

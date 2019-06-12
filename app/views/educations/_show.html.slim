@@ -5,15 +5,15 @@ div id="education"
         | Education information  
   div class="bloktron" id="education-info"
     p class="lead"
-      | Highschool: #{@education.highschool}
+      | University: #{@education.university}
       br
       | Faculty: #{@education.faculty}
       br
       | Department: #{@education.department}
       br
-      | Start year: #{@education.year_of_start}
+      | Entrance year: #{@education.entrance_year}
       br
-      | End year: #{@education.year_of_end}
+      | Graduation year: #{@education.graduation_year}
       br
-      | English level: #{@education.english}
+      | English level: #{@education.english_level}
     = link_to 'Edit', edit_education_path, :class => 'btn btn-lg btn-primary', :id => 'edit_button'

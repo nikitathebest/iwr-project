@@ -1,4 +1,4 @@
-# rubocop:disable all
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -9,14 +9,18 @@ RSpec.describe UserCreateService do
       name: 'TestName',
       surname: 'TestSurname',
       email: 'test@example.com',
-      password: '1234567',
+      password: '1234567'
     }
   end
-  describe '#call!' do
+  describe '#call' do
     it 'create User' do
-      expect{ subject.call! }.to change{ User.all.count }.by(1)
+      expect { subject.call }.to change { User.all.count }.by(1)
+    end
+    it 'create Education with no validation' do
+      expect { subject.call }.to change { Education.all.count }.by(1)
+    end
+    it 'create Profile with no validation' do
+      expect { subject.call }.to change { Profile.all.count }.by(1)
     end
   end
 end
-
-# rubocop:enable all

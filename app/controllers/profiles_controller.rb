@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:user_id])
     authorize @profile
+    @user = current_user
     @education = current_user.education
   end
 

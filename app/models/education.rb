@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Education model
 class Education < ApplicationRecord
   belongs_to :user
 

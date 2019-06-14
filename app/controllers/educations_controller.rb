@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Controller for education
 class EducationsController < ApplicationController
   def edit
     @education = current_user.education

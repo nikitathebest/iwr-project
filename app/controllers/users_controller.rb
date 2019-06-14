@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# Controller for users
 class UsersController < ApplicationController
   def create
     @user = UserCreateService.new(user_params).call

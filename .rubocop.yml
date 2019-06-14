@@ -1,14 +1,9 @@
-Metrics/LineLength:
-  Exclude:
-    - spec/**/*
-
-Metrics/BlockLength:
-  Exclude: 
-    - spec/**/*
-
+Documentation:
+    Enabled: false
 AllCops:
   Exclude:
     - 'db/**/*'
     - 'vendor/**/*'
     - 'config/**/*'
-    - 'bin/**/*'  
+    - 'bin/**/*'
+    - 'spec/**/*'

@@ -1,6 +1,10 @@
+# rubocop:disable all
+
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
+  it { should belong_to(:user) }
+
   describe '#telephone' do
     it { should validate_presence_of(:telephone) }
     it { should validate_numericality_of(:telephone) }
@@ -24,3 +28,5 @@ RSpec.describe Profile, type: :model do
     it { should validate_presence_of(:birthday) }
   end
 end
+
+# rubocop:enable all

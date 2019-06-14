@@ -1,10 +1,20 @@
-div
-  p
-    | Profile with id
-    = @profile.id
-div
-  = link_to :edit, edit_profile_path
-div
-  = link_to :destroy, profile_path(@profile),
-              method: :delete,
-              data: { confirm: 'Are you sure?' }
+div id="profile"
+
+  div class="bloktron" id="profile-info-head"
+    div class="container"
+      h1
+        | #{@profile.user_name}  #{@profile.user_surname}
+  div class="bloktron" id="profile-info"
+    h4 Personal information
+    p class="lead"
+      | Email: #{@profile.user_email}
+      br
+      | Country: #{@profile.country_name}
+      br
+      | City: #{@profile.city}
+      br
+      | Telephone: #{@profile.telephone}
+      br
+      | Birthday: #{@profile.user_birthday}
+    = link_to 'Edit', edit_profile_path, :class => 'btn btn-lg btn-primary', :id => 'edit_button'
+

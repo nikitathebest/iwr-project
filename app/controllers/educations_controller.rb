@@ -10,7 +10,7 @@ class EducationsController < ApplicationController
     @education = current_user.education
 
     if @education.update_attributes(education_params)
-      redirect_to profile_path
+      redirect_to profile_path(current_user)
     else
       render :edit
     end

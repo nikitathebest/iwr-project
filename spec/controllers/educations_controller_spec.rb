@@ -40,7 +40,7 @@ RSpec.describe EducationsController, type: :controller do
 
       it 'redirects to profile' do
         put :update, params: { user_id: user.education.id, education: valid_attribute }
-        expect(response).to redirect_to(profile_path)
+        expect(response).to redirect_to(profile_path(current_user))
       end
     end
 

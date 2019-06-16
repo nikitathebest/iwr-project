@@ -20,4 +20,13 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 6, maximum: 200 },
                        allow_nil: true
+
+  enum role: %i[employee admin manager director]
+  
+  after_initialize do
+    if self.new_record?
+      self.role ||= :employee
+    end
+  end
+
 end

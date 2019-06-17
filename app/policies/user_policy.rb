@@ -13,6 +13,10 @@ class UserPolicy < ApplicationPolicy
     owner?
   end
 
+  def manager?
+    user.manager?
+  end
+
   private
 
   def owner?

@@ -10,6 +10,9 @@ nav.navbar.navbar-expand.navbar-dark.fixed-top.bg-indigo.bg-indigo
         .dropdown-menu
           a
             = link_to 'Profile', profile_path(current_user_profile), class: "dropdown-item"
+          - if (current_user.manager?)
+            a
+              = link_to 'Manager panel', manager_path(current_user), class: "dropdown-item"
           a
             = link_to 'Create vacancy', new_vacancy_path, class: "dropdown-item"
           a

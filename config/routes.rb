@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get '/vacancies', to: 'vacancies#index'
   end
 
+  resource :manager, param: :user_id, only: %i[show]
+
   resources :vacancies, param: :vac_id, except: %i[edit]
   resources :users, param: :user_id, except: %i[index new]
   resources :profiles, only: %i[show edit update]

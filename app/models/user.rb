@@ -27,7 +27,6 @@ class User < ApplicationRecord
                        length: { minimum: 6, maximum: 200 },
                        allow_nil: true
 
-  # accepts_nested_attributes_for :education
   accepts_nested_attributes_for :skill_levels,
                                 reject_if: :blank
 

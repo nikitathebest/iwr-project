@@ -29,11 +29,21 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def email_uniq?
+    if User.find_by(email: request.params['email'].to_s).nil?
+      render status: '404', json: { message: '' }
+    else
+      render status: '204', json: { message: '' }
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :surname,
-                                 :email, :password, :password_confirmation)
+                                 :email, :password, :password_confirmation,
+                                 skill_levels_attributes:
+                                 %i[user_id skill_id level id])
   end
 
   def user_profile_id

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
-  let(:user) { create(:user, :with_profile) }
+	let(:user) { create(:user, :with_profile) }
+	let(:user_skill_level) { create(:user_skill_levels, :with_dependance) }
   let(:user2) { create(:user, :with_profile, email: 'test2@example.com') }
 
   describe 'GET #show' do
@@ -59,15 +60,33 @@ RSpec.describe ProfilesController, type: :controller do
     end
   end
 
-  describe 'PATCH #update' do
-    let(:valid_attribute) do
+	describe 'PATCH #update' do
+		let(:valid_attribute) do
+			{
+				telephone: '375292222222'
+			}
+		end
+		let(:invalid_attribute) do
+			{
+				telephone: '1'
+			}
+		end
+		context 'when logged in' do
+			before do
+				log_in user
+			end
+			context 'with valid params' do
+				it 'updates the record in the database' do
+					patch :update, params: { user_id: user.profile.id, profile: valid_attribute }
+					expect(user.profile.reload.telephone).to eq('375292222222')
+				end
+			end
+		end
+
+    let(:valid_avatar) do
       {
-        telephone: '375292222222'
-      }
-    end
-    let(:invalid_attribute) do
-      {
-        telephone: '1'
+          avatar: fixture_file_upload(Rails.root.
+              join('spec', 'fixtures' , 'files', 'test_valid_avatar.png'), 'image/png')
       }
     end
 
@@ -94,6 +113,15 @@ RSpec.describe ProfilesController, type: :controller do
           patch :update, params: { user_id: user.profile.id,
                 profile: invalid_attribute }
           expect(user.profile.reload.telephone).to eq('375291111111')
+        end
+      end
+
+
+      context 'when a user tries to change his avatar' do
+        it 'attaches the uploaded valid file' do
+          expect {
+            patch :update, params: { user_id: user.profile.id, profile: valid_avatar }
+          }.to change(ActiveStorage::Attachment, :count).by(1)
         end
       end
     end

@@ -17,20 +17,20 @@ Rails.application.routes.draw do
   end
  
   resources :vacancies, param: :vac_id, except: %i[edit]
-  # resources :users, param: :user_id, except: %i[index new]
+  resources :users, param: :user_id, except: %i[index new]
+  # resources :vacancies, param: :vac_id, except: %i[edit]
 
   namespace :user do
     get '/vacancies', to: 'vacancies#index'
     resource :skill_level, only: %i[edit]
-  end
-
-  resources :vacancies, param: :vac_id, except: %i[edit]
+    resource :education, only: %i[edit update]
+  end  
   
-  resources :users, param: :user_id, except: %i[index new] do
-    member do
-      resource :education, only: %i[edit update]
-    end
-  end
+  # resources :users, param: :user_id, except: %i[index new] do
+  #   member do
+  #     resource :education, only: %i[edit update]
+  #   end
+  # end
 
   resources :profiles, param: :user_id, only: %i[show edit update]
 end

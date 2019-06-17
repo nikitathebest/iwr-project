@@ -24,7 +24,7 @@ main role="main" class="container" id="education"
                 div class="field"
                 = f.label :english_level
                 br
-                = select(:education, :english_level, Education::ENGLISH)
+                = select(:user_education, :english_level, User::Education::ENGLISH)
                 br
                 br
                 div class="actions"

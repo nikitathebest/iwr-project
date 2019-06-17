@@ -35,7 +35,7 @@ class UserCreateService
   end
 
   def save_education!
-    education = Education.new(user_id: @user.id)
+    education = User::Education.new(user_id: @user.id)
     education.save!(validate: false)
   end
 end

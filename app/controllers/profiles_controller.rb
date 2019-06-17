@@ -4,10 +4,15 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:user_id])
     authorize @profile
-    @education = current_user.education
+    # @education = current_user.education
+    
+
     @user = current_user
     @skills = Skill.all
     @skill_levels = User::SkillLevel.where(user_id: @user.id)
+
+    
+    @education = User::Education.find(params[:user_id])
   end
 
   def edit

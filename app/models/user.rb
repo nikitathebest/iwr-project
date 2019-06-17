@@ -4,7 +4,7 @@ class User < ApplicationRecord
   include Authenticatable
   attr_accessor :remember_token
   has_one :profile, dependent: :destroy
-  has_one :education, dependent: :destroy
+  has_one :education, dependent: :destroy, class_name: 'User::Education'
   has_many :vacancies, dependent: :destroy
 
   has_many :skill_levels, dependent: :destroy,
@@ -27,7 +27,7 @@ class User < ApplicationRecord
                        length: { minimum: 6, maximum: 200 },
                        allow_nil: true
 
-  accepts_nested_attributes_for :education
+  # accepts_nested_attributes_for :education
   accepts_nested_attributes_for :skill_levels,
                                 reject_if: :blank
 

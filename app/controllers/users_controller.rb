@@ -6,11 +6,6 @@ class UsersController < ApplicationController
     redirect_to root_path if log_in @user
   end
 
-  def edit
-    @user = User.find(user_params)
-    authorize @user
-  end
-
   def update
     @user = User.find(params[:user_id])
     authorize @user

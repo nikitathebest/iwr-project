@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Education, type: :model do
+RSpec.describe User::Education, type: :model do
   it { should belong_to(:user) }
 
   describe '#university' do

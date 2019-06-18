@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
-	let(:user) { create(:user, :with_profile) }
+	let(:user) { create(:user, :with_profile, :with_education) }
 	let(:user_skill_level) { create(:user_skill_levels, :with_dependance) }
   let(:user2) { create(:user, :with_profile, email: 'test2@example.com') }
 

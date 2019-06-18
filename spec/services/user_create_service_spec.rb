@@ -15,7 +15,7 @@ RSpec.describe UserCreateService do
       expect { subject.call }.to change { User.all.count }.by(1)
     end
     it 'create Education with no validation' do
-      expect { subject.call }.to change { Education.all.count }.by(1)
+      expect { subject.call }.to change { User::Education.all.count }.by(1)
     end
     it 'create Profile with no validation' do
       expect { subject.call }.to change { Profile.all.count }.by(1)

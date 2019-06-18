@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :education do
+  factory :education, class: User::Education do
     university { 'BSUIR' }
     faculty { 'FKSIS' }
     department { 'VMSIS' }

@@ -1,10 +1,7 @@
-div id="education"
-  div class="bloktron" id="education-info-head"
-    div class="container"
+
       h1
         | Education information  
-  div class="bloktron" id="education-info"
-    p class="lead"
+  
       | University: #{@education.university}
       br
       | Faculty: #{@education.faculty}
@@ -16,4 +13,5 @@ div id="education"
       | Graduation year: #{@education.graduation_year}
       br
       | English level: #{@education.english_level}
-    = link_to 'Edit', edit_user_education_path, :class => 'btn btn-lg btn-primary', :id => 'edit_button'
+      br
+      = link_to 'Edit', edit_user_education_path

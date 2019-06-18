@@ -4,3 +4,6 @@ AllCops:
     - 'vendor/**/*'
     - 'config/**/*'
     - 'bin/**/*'
+    - 'spec/**/*'
+Documentation:
+  Enabled: false

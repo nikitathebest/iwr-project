@@ -1,5 +1,3 @@
-# rubocop:disable all
-
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
@@ -20,6 +18,17 @@ RSpec.describe UsersController, type: :controller do
       email: nil,
       password: nil
     }
+  end
+
+  context '#email_uniq?' do
+    it 'has 404 status code if email uniq' do
+      get :email_uniq?, params: { email: 'uniqemail@example.com' }
+      expect(response).to have_http_status(404)
+    end
+    it 'has 204 status code if email not uniq' do
+      get :email_uniq?, params: { email: user2.email }
+      expect(response).to have_http_status(204)
+    end
   end
 
   describe 'POST #create' do
@@ -138,5 +147,3 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 end
-
-# rubocop:enable all

@@ -1,60 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
-	let(:user) { create(:user, :with_profile) }
+	let(:user) { create(:user, :with_profile, :with_education) }
 	let(:user_skill_level) { create(:user_skill_levels, :with_dependance) }
   let(:user2) { create(:user, :with_profile, email: 'test2@example.com') }
 
   describe 'GET #show' do
-    context 'when logged in' do
-      before do
-        log_in user
-      end
-      it 'returns a successful response' do
-        get :show, params: { user_id: user.profile.id }
-        expect(response).to be_successful
-      end
-
-      it 'render profiles#show template' do
-        get :show, params: { user_id: user.profile.id }
-        expect(response).to render_template(:show)
-      end
-    end
-
     context 'when logged out' do
       it 'redirect to root' do
         get :show, params: { user_id: user.profile.id }
-        expect(response).to redirect_to(root_path)
-      end
-    end
-  end
-
-  describe 'GET #edit' do
-    context 'when logged in' do
-      before do
-        log_in user
-      end
-      it 'returns a successful response' do
-        get :edit, params: { user_id: user.profile.id }
-        expect(response).to be_successful
-      end
-
-      it 'render profiles#edit template' do
-        get :edit, params: { user_id: user.profile.id }
-        expect(response).to render_template(:edit)
-      end
-
-      context 'when the user tries to change not his profile' do
-        it 'redirect to root' do
-          get :edit, params: { user_id: user2.profile.id }
-          expect(response).to redirect_to(root_path)
-        end
-      end
-    end
-
-    context 'when logged out' do
-      it 'redirect to root' do
-        get :edit, params: { user_id: user.profile.id }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -142,7 +96,7 @@ RSpec.describe ProfilesController, type: :controller do
     context 'when the user tries to change not his profile' do
       it 'does not update the record in the database and redirect to root' do
         patch :update, params: { user_id: user2.profile.id,
-                                 profile: valid_attribute }
+              profile: valid_attribute }
         expect(user2.profile.reload.telephone).to eq('375291111111')
         expect(response).to redirect_to(root_path)
       end

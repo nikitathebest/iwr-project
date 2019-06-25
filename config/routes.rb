@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get '/user/existence/:email', to: 'users#email_uniq?', constraints: { email: /.+\..+/}
 
   namespace :vacancy do
-    patch '/publish', to: 'publish#update'
     resources :attributes, param: :attr_id, except: %i[show new]
     resources :country_search, only: %i[index]
     resources :requests, only: %i[index create]

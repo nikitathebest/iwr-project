@@ -23,5 +23,11 @@ FactoryBot.define do
         create :skill_levels, user: user, skill: (create :skill)
       end
     end
+
+    trait :as_manager do
+      after :create do |user|
+        user.manager!
+      end
+    end
   end
 end

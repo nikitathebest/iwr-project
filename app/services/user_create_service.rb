@@ -12,10 +12,14 @@ class UserCreateService
   end
 
   def call
-    ActiveRecord::Base.transaction do
-      save_user!
-      save_profile!
-      save_education!
+    begin
+      ActiveRecord::Base.transaction do
+        save_user!
+        save_profile!
+        save_education!
+      end
+    rescue ActiveRecord::RecordInvalid
+      redirect_to root_path
     end
     @user
   end
@@ -26,7 +30,7 @@ class UserCreateService
     @user = User.new(name: name, surname: surname,
                      email: email, password: password,
                      password_confirmation: password_confirmation)
-    @user.save! if @user.valid?
+    @user.save!
   end
 
   def save_profile!

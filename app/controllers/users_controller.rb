@@ -2,20 +2,8 @@
 
 class UsersController < ApplicationController
   def create
-    @user = User.new(user_params)
-    if @user.save
-      ProfileCreateService.new(user_id: @user.id).call!
-      log_in @user
-      flash[:success] = 'Welcome, registration is successful.'
-      redirect_to root_path
-    else
-      flash[:danger] = 'Oops'
-    end
-  end
-
-  def edit
-    @user = User.find(user_params)
-    authorize @user
+    @user = UserCreateService.new(user_params).call
+    redirect_to root_path if log_in @user
   end
 
   def update
@@ -36,12 +24,21 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def email_uniq?
+    if User.find_by(email: request.params['email'].to_s).nil?
+      render status: '404', json: { message: '' }
+    else
+      render status: '204', json: { message: '' }
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :surname,
                                  :email, :password, :password_confirmation,
-                                 :role)
+                                 :role, skill_levels_attributes:
+                                 %i[user_id skill_id level id])
   end
 
   def user_profile_id

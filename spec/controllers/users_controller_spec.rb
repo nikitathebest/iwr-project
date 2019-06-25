@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let(:user) { create(:user, :with_profile) }
-  let!(:user2) { create(:user, :with_profile, email: 'test2@example.com') }
+  let(:user) { create(:user, :with_profile, :with_education) }
+  let!(:user2) { create(:user, :with_profile, :with_education, email: 'test2@example.com') }
   let(:valid_params) do
     {
       name: 'Boris',
@@ -18,6 +18,18 @@ RSpec.describe UsersController, type: :controller do
       email: nil,
       password: nil
     }
+  end
+
+  describe 'GET #email_uniq?' do
+    it 'has 404 status code if email uniq' do
+      get :email_uniq?, params: { email: 'uniqemail@example.com' }
+      expect(response).to have_http_status(404)
+    end
+    
+    it 'has 204 status code if email not uniq' do
+      get :email_uniq?, params: { email: user2.email }
+      expect(response).to have_http_status(204)
+    end
   end
 
   describe 'POST #create' do

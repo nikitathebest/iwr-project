@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  resource :admin, param: :user_id, only: %i[show destroy update]
   get '/user/existence/:email', to: 'users#email_uniq?', constraints: { email: /.+\..+/}
 
   namespace :vacancy do

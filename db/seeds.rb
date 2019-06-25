@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+manager_params = {
+  name: 'admin',
+  surname: 'admin',
+  email: 'admin@example.com',
+  password: '1111111',
+  password_confirmation: '1111111',
+  role: :manager
+ }
+
+UserCreateService.new(manager_params).call
+
 programming_languages = [
   'ABAP',
   'C#',

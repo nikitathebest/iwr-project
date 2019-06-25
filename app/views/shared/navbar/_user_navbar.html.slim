@@ -13,10 +13,10 @@ nav.navbar.navbar-expand.navbar-dark.fixed-top.bg-indigo.bg-indigo
           - if (current_user.manager?)
             a
               = link_to 'Manager panel', manager_path(current_user), class: "dropdown-item"
-          a
-            = link_to 'Create vacancy', new_vacancy_path, class: "dropdown-item"
-          a
-            = link_to 'My vacancies', user_vacancies_path, class: "dropdown-item"
+            a
+              = link_to 'Create vacancy', new_vacancy_path, class: "dropdown-item"
+            a
+              = link_to 'My vacancies', user_vacancies_path, class: "dropdown-item"
           a
             = link_to 'Vacancy requests', vacancy_requests_path, class: "dropdown-item"
           .dropdown-divider

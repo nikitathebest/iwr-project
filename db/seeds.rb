@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 manager_params = {
-  name: 'admin',
-  surname: 'admin',
-  email: 'admin@example.com',
-  password: '1111111',
-  password_confirmation: '1111111',
+  name: 'manager',
+  surname: 'manager',
+  email: 'manager@example.com',
+  password: '1234567',
+  password_confirmation: '1234567',
   role: :manager
  }
 

@@ -3,6 +3,8 @@
 class User
   class VacanciesController < ApplicationController
     def index
+      @manager = current_user
+      authorize @manager, :manager?
       @vacancies = Vacancy.where(user_id: current_user_id)
       authorize @vacancies
     end

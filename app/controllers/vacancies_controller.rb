@@ -15,6 +15,8 @@ class VacanciesController < ApplicationController
   end
 
   def new
+    # @manager = current_user
+    # authorize @manager, :manager?
     @vacancy = Vacancy.new
     authorize @vacancy
   end

@@ -26,7 +26,8 @@ class UserCreateService
   def save_user!
     @user = User.new(name: name, surname: surname,
                      email: email, password: password,
-                     password_confirmation: password_confirmation, role: role)
+                     password_confirmation: password_confirmation,
+                     role: role)
     @user.save! if @user.valid?
   end
 

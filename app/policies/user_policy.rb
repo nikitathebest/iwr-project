@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class UserPolicy < ApplicationPolicy
+  def show?
+    admin?
+  end
+
   def update?
-    owner?
+    owner? || admin?
   end
 
   def destroy?
-    owner?
+    owner? || admin?
   end
 
   def manager?
@@ -17,5 +21,9 @@ class UserPolicy < ApplicationPolicy
 
   def owner?
     user == record
+  end
+
+  def admin?
+    user.admin?
   end
 end

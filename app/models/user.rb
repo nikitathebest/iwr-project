@@ -28,6 +28,8 @@ class User < ApplicationRecord
                        length: { minimum: 6, maximum: 200 },
                        allow_nil: true
 
+  enum role: %i[employee admin manager director]
+  after_initialize :set_default_role, if: :new_record?
   validates :password_confirmation, presence: true,
                                     length: { minimum: 6, maximum: 200 },
                                     allow_nil: true
@@ -35,13 +37,17 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :skill_levels,
                                 reject_if: :blank
 
+  def set_default_role
+    self.role ||= :employee
+  end
+
   def blank(attributes)
     attributes['level'].blank?
   end
 
-  enum role: %i[employee admin manager director]
+  # enum role: %i[employee admin manager director]
 
-  after_initialize do
-    self.role ||= :employee if new_record?
-  end
+  # after_initialize do
+  #   self.role ||= :employee if new_record?
+  # end
 end

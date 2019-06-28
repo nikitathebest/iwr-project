@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe UserPolicy do
   subject { described_class }
   let(:user) { create(:user) }
-  let(:manager) { create(:user, :as_manager, email: 't@example.com')}
+  let(:manager) { create(:user, :as_manager, email: 't1@example.com')}
+  let(:admin) { create(:user, :as_admin, email: 't@example.com')}
 
   context 'being a visitor' do
     permissions :update?, :edit?, :destroy? do
@@ -16,7 +17,7 @@ RSpec.describe UserPolicy do
   context 'being a user' do
     permissions :update?, :edit?, :destroy? do
       context 'if user is trying to change his account' do
-        it "allowed access" do
+        it "allows access" do
           expect(subject).to permit(user, user)
         end
       end
@@ -38,7 +39,14 @@ RSpec.describe UserPolicy do
       end
     end
   end
-
-
-
+    
+  context 'being an admin' do
+    permissions :update?, :edit?, :destroy?, :show? do
+      context 'if admin tryes to change accounts' do
+        it 'allows access' do
+          expect(subject).to permit(admin, user)
+        end
+      end
+    end
+  end
 end

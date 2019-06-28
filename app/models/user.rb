@@ -40,6 +40,7 @@ class User < ApplicationRecord
   end
 
   enum role: %i[employee admin manager director]
+
   after_initialize do
     self.role ||= :employee if new_record?
   end

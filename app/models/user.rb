@@ -44,10 +44,4 @@ class User < ApplicationRecord
   def blank(attributes)
     attributes['level'].blank?
   end
-
-  # enum role: %i[employee admin manager director]
-
-  # after_initialize do
-  #   self.role ||= :employee if new_record?
-  # end
 end

@@ -1,22 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ManagersController, type: :controller do
-  let(:manager) { create(:user, :as_manager, email: 'test@example.com') }
+  let(:manager) { create(:user, :as_manager) }
   let(:user) { create(:user) }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   describe 'GET #show' do
     context 'when logged in' do

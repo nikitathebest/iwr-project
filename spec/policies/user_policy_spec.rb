@@ -32,7 +32,7 @@ RSpec.describe UserPolicy do
 
   context 'being a manager' do
     permissions :show? do
-      context 'if manager tryes to change accounts' do
+      context 'if manager tryes to show accounts' do
         it 'allows access' do
           expect(subject).to permit(manager, user)
         end

@@ -15,10 +15,13 @@ class VacanciesController < ApplicationController
   end
 
   def new
-    # @manager = current_user
-    # authorize @manager, :manager?
     @vacancy = Vacancy.new
-    authorize @vacancy
+    if logged_in?
+      authorize @vacancy
+    else
+      redirect_to root_path
+      return
+    end
   end
 
   def create

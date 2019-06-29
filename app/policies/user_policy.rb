@@ -2,7 +2,7 @@
 
 class UserPolicy < ApplicationPolicy
   def show?
-    admin?
+    admin? || manager?
   end
 
   def update?

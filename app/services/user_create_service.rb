@@ -20,7 +20,6 @@ class UserCreateService
         save_education!
       end
     rescue ActiveRecord::RecordInvalid
-      redirect_to root_path
     end
     @user
   end

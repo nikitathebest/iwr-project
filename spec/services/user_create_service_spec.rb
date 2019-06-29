@@ -8,7 +8,7 @@ RSpec.describe UserCreateService do
       surname: 'TestSurname',
       email: 'test@example.com',
       password: '1234567',
-      password_confirmation: '12345678'
+      password_confirmation: '1234567'
     }
   end
   describe '#call' do

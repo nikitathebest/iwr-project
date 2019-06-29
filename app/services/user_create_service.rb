@@ -19,8 +19,8 @@ class UserCreateService
         save_profile!
         save_education!
       end
-    rescue ActiveRecord::RecordInvalid => exception
-      puts exception.message
+    rescue ActiveRecord::RecordInvalid => e
+      puts e.message
     end
     @user
   end

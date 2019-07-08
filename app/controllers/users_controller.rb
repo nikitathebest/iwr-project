@@ -3,7 +3,9 @@
 class UsersController < ApplicationController
   def create
     @user = UserCreateService.new(user_params).call
-    redirect_to root_path if log_in @user
+    @user.send_activation_email if @user.save
+    flash[:info] = 'YaY! Check your mailbox to proceed! ;-)'
+    redirect_to root_path
   end
 
   def update
@@ -43,7 +45,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :surname,
                                  :email, :password, :password_confirmation,
-                                 :role,
                                  skill_levels_attributes:
                                  %i[user_id skill_id level id])
   end
